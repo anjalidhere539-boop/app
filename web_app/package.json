@@ -1,0 +1,13 @@
+{
+  "name": "enx-money-web",
+  "version": "1.0.0",
+  "description": "ENX MONEY - Complete Business & Personal Finance Operating System Web App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["finance", "enx-money", "gst", "invoicing", "khata", "emi", "budget"],
+  "author": "Enterprenex Solution Pvt Ltd",
+  "license": "ISC"
+}

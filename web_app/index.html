@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENX MONEY - Business & Personal Finance Management</title>
+  <meta name="description" content="ENX MONEY: Complete Business & Personal Finance Operating System. GST Invoicing, Inventory, Customer Khata Ledger, Loan EMI, Cashbook & Analytics.">
+  <link rel="icon" type="image/png" href="assets/enx_logo.png">
+  
+  <!-- Phosphor Icons & FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="theme-dark">
+
+  <div class="app-layout">
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-wrapper" onclick="App.navigate('dashboard')">
+          <img src="assets/enx_logo.png" alt="ENX Money" class="brand-logo-img" onerror="this.src='https://placehold.co/38x38/0066cc/ffffff?text=ENX'">
+          <div class="brand-info">
+            <span class="brand-name">ENX MONEY</span>
+            <span class="brand-sub">Finance Hub</span>
+          </div>
+        </div>
+        <button class="sidebar-toggle-btn" id="sidebar-toggle" title="Toggle Sidebar">
+          <i class="ph ph-caret-left"></i>
+        </button>
+      </div>
+
+      <!-- Mode Switcher Pill inside Sidebar -->
+      <div class="mode-switch-card">
+        <div class="mode-pills">
+          <button class="mode-pill active" id="mode-btn-business" onclick="App.switchMode('business')">
+            <i class="ph ph-briefcase"></i>
+            <span>Business Pro</span>
+          </button>
+          <button class="mode-pill" id="mode-btn-personal" onclick="App.switchMode('personal')">
+            <i class="ph ph-user"></i>
+            <span>Personal</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-menu" id="nav-menu">
+        <!-- Injected via JavaScript based on Active Mode -->
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="user-avatar-mini" id="user-avatar-initials">PW</div>
+        <div class="user-meta-mini">
+          <span class="user-name-mini" id="user-name-label">Piyush Walunj</span>
+          <span class="user-role-mini" id="user-role-label">Apex Enterprises</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN WRAPPER ==================== -->
+    <div class="main-wrapper" id="main-wrapper">
+      
+      <!-- Topbar Header -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="ph ph-list"></i>
+          </button>
+          <div class="topbar-greeting">
+            <h2 id="topbar-title-text">
+              Piyush Walunj
+              <span class="pro-badge" id="topbar-mode-badge">BUSINESS PRO</span>
+            </h2>
+            <p id="topbar-subtitle-text">Apex Enterprises Ltd. • Live Financial Hub</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Global Search Bar -->
+          <div class="search-input-wrapper">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="text" class="search-input" id="global-search" placeholder="Search invoices, stock, khata..." oninput="App.handleGlobalSearch(this.value)">
+          </div>
+
+          <!-- Language Selector -->
+          <div class="lang-selector-wrapper">
+            <select class="form-control" id="language-select" onchange="App.changeLanguage(this.value)" style="padding: 7px 10px; font-size: 12px; height: 38px; width: auto; cursor: pointer;">
+              <option value="en">🇬🇧 English</option>
+              <option value="hi">🇮🇳 हिन्दी (Hindi)</option>
+              <option value="mr">🇮🇳 मराठी (Marathi)</option>
+              <option value="gu">🇮🇳 ગુજરાતી (Gujarati)</option>
+              <option value="ta">🇮🇳 தமிழ் (Tamil)</option>
+              <option value="te">🇮🇳 తెలుగు (Telugu)</option>
+              <option value="kn">🇮🇳 ಕನ್ನಡ (Kannada)</option>
+              <option value="bn">🇮🇳 বাংলা (Bengali)</option>
+            </select>
+          </div>
+
+          <!-- Theme Toggle -->
+          <button class="icon-action-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme" onclick="App.toggleTheme()">
+            <i class="ph ph-sun" id="theme-icon"></i>
+          </button>
+
+          <!-- Notifications -->
+          <button class="icon-action-btn" id="notif-btn" title="Notifications" onclick="App.showNotifications()">
+            <i class="ph ph-bell"></i>
+            <span class="notif-dot"></span>
+          </button>
+
+          <!-- Quick Create Action -->
+          <button class="btn-primary" onclick="App.openQuickActionModal()">
+            <i class="ph ph-plus-circle"></i>
+            <span>New Entry</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Dynamic Content Container -->
+      <main class="content-area" id="app-view">
+        <!-- Rendered dynamically by JavaScript Router -->
+      </main>
+
+    </div>
+  </div>
+
+  <!-- ==================== MODALS CONTAINER ==================== -->
+  <div id="modal-container"></div>
+
+  <!-- ==================== TOAST CONTAINER ==================== -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
